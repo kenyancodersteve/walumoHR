@@ -8,6 +8,7 @@ import MyPostedJobs from "./components/MyPostedJobs";
 
 export default function Dashboard({ role }) {
   const [user, setUser] = useState(null);
+  console.log(user)
 
   useEffect(() => {
     return onAuthStateChanged(auth, setUser);
@@ -15,7 +16,7 @@ export default function Dashboard({ role }) {
 
   return user ? (
     <div style={{ maxWidth: "500px", margin: "auto", padding: "1rem" }}>
-      <h3>Welcome {user.name} <RoleBadge role={role} /></h3>
+      <h3>Welcome to our app {user.displayName} <RoleBadge role={role} /></h3>
 
       {role === "worker" && <JobsList />}
       {role === "contractor" && (
