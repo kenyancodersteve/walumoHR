@@ -32,30 +32,41 @@ export default function JobForm({ onJobPosted }) {
     }
   };
 
-  return (
-    <form onSubmit={handlePostJob}>
-      <h4>Post a New Job</h4>
-      <input
-        placeholder="Job Title"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        required
-      />
-      <input
-        placeholder="Location"
-        value={location}
-        onChange={(e) => setLocation(e.target.value)}
-        required
-      />
-      <input
-        type="number"
-        placeholder="Number of Workers"
-        value={slots}
-        onChange={(e) => setSlots(e.target.value)}
-        min={1}
-        required
-      />
-      <button type="submit" className="submit-btn">Post Job</button>
-    </form>
-  );
+ return (
+  <form onSubmit={handlePostJob} className="job-post-form">
+    <h4 className="form-title">Post a New Job</h4>
+
+    <input
+      type="text"
+      placeholder="Job Title"
+      value={title}
+      onChange={(e) => setTitle(e.target.value)}
+      required
+      className="form-input"
+    />
+
+    <input
+      type="text"
+      placeholder="Location"
+      value={location}
+      onChange={(e) => setLocation(e.target.value)}
+      required
+      className="form-input"
+    />
+
+    <input
+      type="number"
+      placeholder="Number of Workers"
+      value={slots}
+      onChange={(e) => setSlots(e.target.value)}
+      min={1}
+      required
+      className="form-input"
+    />
+
+    <button type="submit" className="submit-btn">
+      Post Job
+    </button>
+  </form>
+);
 }

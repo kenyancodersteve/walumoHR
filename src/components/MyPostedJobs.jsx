@@ -8,10 +8,12 @@ import {
   getDoc,
 } from "firebase/firestore";
 import { auth, db } from "../firebase";
+import LeaveReview from "./LeaveReview";
 
 export default function MyPostedJobs() {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [expanded, setExpanded] = useState({}); // { jobId: { userId: true } }
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (user) => {
@@ -32,7 +34,6 @@ export default function MyPostedJobs() {
           snapshot.docs.map(async (docSnap) => {
             const job = { id: docSnap.id, ...docSnap.data() };
 
-            // If there are acceptedBy UIDs, fetch their names
             if (Array.isArray(job.acceptedBy) && job.acceptedBy.length > 0) {
               const userPromises = job.acceptedBy.map(async (uid) => {
                 const userDoc = await getDoc(doc(db, "users", uid));
@@ -60,44 +61,66 @@ export default function MyPostedJobs() {
     return () => unsubscribe();
   }, []);
 
+  const toggleCollapse = (jobId, userId) => {
+    setExpanded((prev) => ({
+      ...prev,
+      [jobId]: {
+        ...prev[jobId],
+        [userId]: !prev?.[jobId]?.[userId],
+      },
+    }));
+  };
+
   return (
-    <div>
-      <h4>My Jobs</h4>
+    <div className="my-jobs-section">
+      <h4 className="section-title">My Jobs</h4>
 
       {loading ? (
-        <p>Loading jobs...</p>
+        <p className="info-text">Loading jobs...</p>
       ) : jobs.length === 0 ? (
-        <p>No jobs posted yet.</p>
+        <p className="info-text">No jobs posted yet.</p>
       ) : (
-        <ul style={{ paddingLeft: 0 }}>
+        <ul className="job-list">
           {jobs.map((job) => (
-            <li
-              key={job.id}
-              style={{
-                background: "#f9f9f9",
-                marginBottom: "10px",
-                padding: "10px",
-                borderRadius: "6px",
-                listStyle: "none",
-              }}
-            >
-              <strong>{job.title}</strong> — <em>{job.location}</em>
+            <li className="job-card" key={job.id}>
+              <div className="job-header">
+                <strong className="job-title">{job.title}</strong>
+                <span className="job-location">{job.location}</span>
+              </div>
 
-              <p style={{ marginTop: "6px", color: "green" }}>
+              <p className="job-filled">
                 Filled: {job.acceptedByDetails?.length || 0} / {job.slots}
               </p>
 
               {job.acceptedByDetails.length > 0 ? (
-                <div>
-                  <p>Accepted by:</p>
-                  <ul style={{ paddingLeft: "20px" }}>
-                    {job.acceptedByDetails.map((entry, idx) => (
-                      <li key={idx}>{entry.name}</li>
-                    ))}
+                <div className="accepted-list">
+                  <p className="accepted-label">Accepted by:</p>
+                  <ul>
+                    {job.acceptedByDetails.map((entry, idx) => {
+                      const isOpen = expanded?.[job.id]?.[entry.uid];
+                      return (
+                        <li key={idx} className="accepted-user">
+                          <p>
+                            <strong>{entry.name}</strong>{" "}
+                            <button
+                              className="toggle-review-btn"
+                              onClick={() => toggleCollapse(job.id, entry.uid)}
+                            >
+                              {isOpen ? "Hide Review" : "Leave Review"}
+                            </button>
+                          </p>
+                          {isOpen && (
+                            <div className="review-collapse">
+                              <LeaveReview jobId={job.id} toUserId={entry.uid} />
+                            </div>
+                          )}
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
               ) : (
-                <p style={{ color: "gray" }}>Not yet accepted</p>
+                <p className="job-pending">Not yet accepted</p>
               )}
             </li>
           ))}

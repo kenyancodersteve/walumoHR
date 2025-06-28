@@ -95,7 +95,7 @@ button:hover {
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
-  width: 100%;
+  /* width: 100%; */
 }
 
 .submit-btn:hover {
@@ -105,7 +105,7 @@ button:hover {
 
 /* Layout */
 .dashboard {
-  max-width: 600px;
+  /* max-width: 600px; */
   margin: 2rem auto;
   padding: 1rem;
   font-family: "Segoe UI", sans-serif;
@@ -119,12 +119,13 @@ button:hover {
 
 /* Role Badge */
 .role-badge {
-  background-color: #e0f7fa;
+  background-color: white;
   color: #00796b;
   padding: 4px 10px;
   border-radius: 12px;
   font-size: 0.85rem;
   margin-left: 8px;
+
 }
 
 /* Section Headings */
@@ -205,4 +206,488 @@ form select {
 
 form h4 {
   margin-bottom: 10px;
+}
+
+.sticky-banner {
+  position: sticky;
+  width: 100vw;
+  top: 0;
+  background-color: #4a90e2; /* Vibrant blue */
+  color: white;
+  padding: 16px 24px;
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-align: center;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  letter-spacing: 0.5px;
+  border-radius: 0 0 8px 8px;
+  /* display: flex;
+  justify-content: space-around;
+  align-items: center; */
+}
+
+h3> .role-badge {
+  background-color: white;
+  color: #00796b;
+  /* padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  margin-left: 8px; */
+
+}
+
+.center{
+    width: 80%;
+    margin-left: 10%;
+}
+
+.job-section {
+  padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.job-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.job-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 16px 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease;
+}
+
+.job-card:hover {
+  transform: translateY(-4px);
+}
+
+.job-title {
+  font-size: 1.2rem;
+  color: #222;
+}
+
+.job-location {
+  font-style: normal;
+  color: #888;
+  font-size: 0.95rem;
+}
+
+.job-status {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #4a90e2;
+}
+
+.job-full {
+  margin-top: 10px;
+  color: gray;
+  font-weight: 500;
+}
+
+.submit-btn {
+  margin-top: 12px;
+  background-color: #4a90e2;
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.submit-btn:hover {
+  background-color: #3a7dd6;
+}
+
+
+/* job contractor css */
+.my-jobs-section {
+  padding: 1rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.info-text {
+  text-align: center;
+  color: #777;
+  margin-top: 1rem;
+}
+
+.job-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+}
+
+.job-card {
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  padding: 16px 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.2s;
+}
+
+.job-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.job-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.job-location {
+  font-size: 0.95rem;
+  color: #888;
+  font-style: italic;
+}
+
+.job-filled {
+  margin: 8px 0;
+  color: #3a7d44;
+  font-weight: 500;
+}
+
+.job-pending {
+  color: #999;
+  margin-top: 6px;
+}
+
+.accepted-list {
+  margin-top: 10px;
+}
+
+.accepted-label {
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.accepted-user {
+  padding-left: 1rem;
+  color: #555;
+}
+
+/* contractor job form */
+.job-post-form {
+  background-color: #fff;
+  padding: 24px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-title {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.form-input {
+  padding: 12px 16px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.2s;
+}
+
+.form-input:focus {
+  border-color: #4a90e2;
+  outline: none;
+}
+
+.submit-btn {
+  background-color: #4a90e2;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.submit-btn:hover {
+  background-color: #357abd;
+}
+
+/* responsive nav */
+.dashboard-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px 16px;
+  margin-bottom: 24px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.dashboard-nav button {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #333;
+  transition: background-color 0.25s, color 0.25s;
+}
+
+.dashboard-nav button:hover {
+  background-color: #4a90e2;
+  color: white;
+}
+
+@media (max-width: 600px) {
+  .dashboard-nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .dashboard-nav button {
+    width: 100%;
+    font-size: 1rem;
+  }
+}
+
+/* reviews styling */
+.review-form {
+  margin-top: 12px;
+  padding: 12px;
+  background: #f8f8f8;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.review-form textarea {
+  resize: vertical;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.review-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.review-item {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+}
+
+/* more review styles */
+.review-list-container {
+  background-color: #fff;
+  padding: 1.5rem;
+  margin: 1rem auto;
+  border-radius: 10px;
+  max-width: 600px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.review-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.no-reviews {
+  color: #777;
+  font-style: italic;
+}
+
+.review-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.review-item {
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 0.75rem;
+  border-radius: 8px;
+  background-color: #fafafa;
+  transition: transform 0.2s ease;
+}
+
+.review-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.review-rating {
+  font-weight: bold;
+  color: #f39c12;
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.review-comment {
+  font-size: 0.95rem;
+  color: #444;
+}
+
+/* COLLAPSE */
+.toggle-review-btn {
+  background: transparent;
+  border: none;
+  color: #007bff;
+  border: solid #007bff;
+  font-size: 0.85rem;
+  cursor: pointer;
+  margin-top: 8px;
+}
+.toggle-review-btn:hover{
+     color: white;
+}
+
+.review-collapse {
+  margin-top: 8px;
+  border-top: 1px solid #ddd;
+  padding-top: 8px;
+}
+
+
+/* Responsive Tweaks */
+@media (max-width: 600px) {
+  .form, .job-post-form, .review-list-container {
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  .dashboard-nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .dashboard-nav button {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .job-card {
+    padding: 1rem;
+  }
+
+  .job-title {
+    font-size: 1rem;
+  }
+
+  .job-location {
+    font-size: 0.9rem;
+  }
+
+  .review-title {
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 600px) {
+  /* Make container divs flex column */
+  .dashboard,
+  .job-card,
+  .job-header,
+  .review-list-container,
+  .job-post-form,
+  .my-jobs-section {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .job-header {
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .job-title,
+  .job-location {
+    font-size: 1rem;
+  }
+
+  .job-filled,
+  .job-pending,
+  .accepted-user {
+    font-size: 0.95rem;
+  }
+
+  .review-item {
+    font-size: 0.95rem;
+  }
+
+  /* Adjust padding and spacing for smaller screens */
+  .job-card,
+  .review-list-container,
+  .job-post-form,
+  .my-jobs-section {
+    padding: 1rem;
+    margin: 0.5rem;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 0.75rem;
+  }
+
+  form.form {
+    width: 90%;
+  }
 }
