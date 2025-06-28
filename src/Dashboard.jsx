@@ -15,7 +15,7 @@ export default function Dashboard({ role }) {
 
   return user ? (
     <div style={{ maxWidth: "500px", margin: "auto", padding: "1rem" }}>
-      <h3>Welcome {user.email} <RoleBadge role={role} /></h3>
+      <h3>Welcome {user.name} <RoleBadge role={role} /></h3>
 
       {role === "worker" && <JobsList />}
       {role === "contractor" && (
